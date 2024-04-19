@@ -28,7 +28,11 @@ set_property(TARGET main PROPERTY CXX_STANDARD 17)          // standard to 17
 
 4. make a folder ***build*** and inside build folder : call ``` cmake ..```
 
+![image_cmake](<Screenshot from 2024-04-19 22-31-42.png>)
+
 5. then inside build folder : ```make```
 
 6. run the generated executable : ```./main```
+
+![image_make](<Screenshot from 2024-04-19 22-33-27.png>)
 
