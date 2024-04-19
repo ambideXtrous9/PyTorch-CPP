@@ -10,7 +10,7 @@ Neural Network using PyTorch C++
 sudo apt install g++ cmake
 ```
 
-2. Download the Pytorch !***libtorch***('https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-2.2.2%2Bcpu.zip') package and unzip it
+2. Download the Pytorch ***libtorch*** package and unzip it : ![libtorch]('https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-2.2.2%2Bcpu.zip')
 
 3. create a file : CMakelists.txt
 
@@ -26,7 +26,7 @@ set_property(TARGET main PROPERTY CXX_STANDARD 17)          // standard to 17
 
 ```
 
-4. make a folder ***build*** and inside build folder : call ``` cmake ..``
+4. make a folder ***build*** and inside build folder : call ``` cmake ..```
 
 5. then inside build folder : ```make```
 
