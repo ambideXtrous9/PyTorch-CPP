@@ -1,3 +1,0 @@
-/home/ss/STUDY/PyTorch-CPP/NeuralNet/build/CMakeFiles/main.dir
-/home/ss/STUDY/PyTorch-CPP/NeuralNet/build/CMakeFiles/edit_cache.dir
-/home/ss/STUDY/PyTorch-CPP/NeuralNet/build/CMakeFiles/rebuild_cache.dir

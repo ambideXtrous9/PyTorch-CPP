@@ -1,0 +1,3 @@
+/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/build/CMakeFiles/main.dir
+/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/build/CMakeFiles/edit_cache.dir
+/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/build/CMakeFiles/rebuild_cache.dir

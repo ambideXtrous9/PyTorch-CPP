@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE
 
-CXX_INCLUDES = -isystem /home/ss/STUDY/PyTorch-CPP/libtorch/include -isystem /home/ss/STUDY/PyTorch-CPP/libtorch/include/torch/csrc/api/include
+CXX_INCLUDES = -isystem /usr/local/include/opencv4 -isystem /home/ss/STUDY/PyTorch-CPP/libtorch/include -isystem /home/ss/STUDY/PyTorch-CPP/libtorch/include/torch/csrc/api/include
 
 CXX_FLAGS =  -D_GLIBCXX_USE_CXX11_ABI=1 -D_GLIBCXX_USE_CXX11_ABI=1
 
