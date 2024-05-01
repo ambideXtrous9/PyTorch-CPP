@@ -14,7 +14,7 @@ void createTrainTestFolders(const std::string &parentFolder, const std::string &
 
 class CustomDataset : public torch::data::Dataset<CustomDataset>
 {
-public:
+private:
     std::vector<std::string> filepaths_;
     std::vector<int64_t> labels_;
 

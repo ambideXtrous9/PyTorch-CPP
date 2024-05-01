@@ -19,7 +19,8 @@ if (DOWNLOAD_MNIST)
   endif()
 endif()
 
-add_executable(main CNNMNIST.cpp)
+add_executable(main main.cpp src/model.cpp)
+
 target_link_libraries(main "${TORCH_LIBRARIES}")
 
 

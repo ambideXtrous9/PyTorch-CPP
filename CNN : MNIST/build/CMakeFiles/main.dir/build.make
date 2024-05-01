@@ -69,28 +69,44 @@ include CMakeFiles/main.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/main.dir/flags.make
 
-CMakeFiles/main.dir/CNNMNIST.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/CNNMNIST.cpp.o: ../CNNMNIST.cpp
-CMakeFiles/main.dir/CNNMNIST.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/CNNMNIST.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/CNNMNIST.cpp.o -MF CMakeFiles/main.dir/CNNMNIST.cpp.o.d -o CMakeFiles/main.dir/CNNMNIST.cpp.o -c "/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/CNNMNIST.cpp"
+CMakeFiles/main.dir/main.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/main.cpp.o: ../main.cpp
+CMakeFiles/main.dir/main.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/main.cpp.o -MF CMakeFiles/main.dir/main.cpp.o.d -o CMakeFiles/main.dir/main.cpp.o -c "/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/main.cpp"
 
-CMakeFiles/main.dir/CNNMNIST.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/CNNMNIST.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/CNNMNIST.cpp" > CMakeFiles/main.dir/CNNMNIST.cpp.i
+CMakeFiles/main.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/main.cpp" > CMakeFiles/main.dir/main.cpp.i
 
-CMakeFiles/main.dir/CNNMNIST.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/CNNMNIST.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/CNNMNIST.cpp" -o CMakeFiles/main.dir/CNNMNIST.cpp.s
+CMakeFiles/main.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/main.cpp" -o CMakeFiles/main.dir/main.cpp.s
+
+CMakeFiles/main.dir/src/model.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/model.cpp.o: ../src/model.cpp
+CMakeFiles/main.dir/src/model.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/model.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/model.cpp.o -MF CMakeFiles/main.dir/src/model.cpp.o.d -o CMakeFiles/main.dir/src/model.cpp.o -c "/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/src/model.cpp"
+
+CMakeFiles/main.dir/src/model.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/model.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/src/model.cpp" > CMakeFiles/main.dir/src/model.cpp.i
+
+CMakeFiles/main.dir/src/model.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/model.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/src/model.cpp" -o CMakeFiles/main.dir/src/model.cpp.s
 
 # Object files for target main
 main_OBJECTS = \
-"CMakeFiles/main.dir/CNNMNIST.cpp.o"
+"CMakeFiles/main.dir/main.cpp.o" \
+"CMakeFiles/main.dir/src/model.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
-main: CMakeFiles/main.dir/CNNMNIST.cpp.o
+main: CMakeFiles/main.dir/main.cpp.o
+main: CMakeFiles/main.dir/src/model.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: /home/ss/STUDY/PyTorch-CPP/libtorch/lib/libtorch.so
 main: /home/ss/STUDY/PyTorch-CPP/libtorch/lib/libc10.so
@@ -112,7 +128,7 @@ main: /usr/local/lib/libopencv_flann.so.4.9.0
 main: /usr/local/lib/libopencv_imgproc.so.4.9.0
 main: /usr/local/lib/libopencv_core.so.4.9.0
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ss/STUDY/PyTorch-CPP/CNN : MNIST/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

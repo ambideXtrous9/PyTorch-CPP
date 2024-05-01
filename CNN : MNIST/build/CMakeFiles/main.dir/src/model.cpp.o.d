@@ -1,6 +1,8 @@
-CMakeFiles/main.dir/CNNMNIST.cpp.o: \
- /home/ss/STUDY/PyTorch-CPP/CNN\ :\ MNIST/CNNMNIST.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
+CMakeFiles/main.dir/src/model.cpp.o: \
+ /home/ss/STUDY/PyTorch-CPP/CNN\ :\ MNIST/src/model.cpp \
+ /usr/include/stdc-predef.h \
+ /home/ss/STUDY/PyTorch-CPP/CNN\ :\ MNIST/src/../inc/model.h \
+ /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \

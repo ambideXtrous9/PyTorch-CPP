@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/main.dir/CNNMNIST.cpp.o"
-  "CMakeFiles/main.dir/CNNMNIST.cpp.o.d"
+  "CMakeFiles/main.dir/main.cpp.o"
+  "CMakeFiles/main.dir/main.cpp.o.d"
+  "CMakeFiles/main.dir/src/model.cpp.o"
+  "CMakeFiles/main.dir/src/model.cpp.o.d"
   "main"
   "main.pdb"
 )
