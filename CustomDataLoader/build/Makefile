@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/ss/STUDY/PyTorch-CPP/Custom DataLoader"
+CMAKE_SOURCE_DIR = /home/ss/STUDY/PyTorch-CPP/CustomDataLoader
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/ss/STUDY/PyTorch-CPP/Custom DataLoader/build"
+CMAKE_BINARY_DIR = /home/ss/STUDY/PyTorch-CPP/CustomDataLoader/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ss/STUDY/PyTorch-CPP/Custom DataLoader/build/CMakeFiles" "/home/ss/STUDY/PyTorch-CPP/Custom DataLoader/build//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ss/STUDY/PyTorch-CPP/CustomDataLoader/build/CMakeFiles /home/ss/STUDY/PyTorch-CPP/CustomDataLoader/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ss/STUDY/PyTorch-CPP/Custom DataLoader/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ss/STUDY/PyTorch-CPP/CustomDataLoader/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,29 +129,77 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-Dataset.o: Dataset.cpp.o
-.PHONY : Dataset.o
+main.o: main.cpp.o
+.PHONY : main.o
 
 # target to build an object file
-Dataset.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Dataset.cpp.o
-.PHONY : Dataset.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-Dataset.i: Dataset.cpp.i
-.PHONY : Dataset.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-Dataset.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Dataset.cpp.i
-.PHONY : Dataset.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-Dataset.s: Dataset.cpp.s
-.PHONY : Dataset.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-Dataset.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Dataset.cpp.s
-.PHONY : Dataset.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+src/Dataset.o: src/Dataset.cpp.o
+.PHONY : src/Dataset.o
+
+# target to build an object file
+src/Dataset.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Dataset.cpp.o
+.PHONY : src/Dataset.cpp.o
+
+src/Dataset.i: src/Dataset.cpp.i
+.PHONY : src/Dataset.i
+
+# target to preprocess a source file
+src/Dataset.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Dataset.cpp.i
+.PHONY : src/Dataset.cpp.i
+
+src/Dataset.s: src/Dataset.cpp.s
+.PHONY : src/Dataset.s
+
+# target to generate assembly for a file
+src/Dataset.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Dataset.cpp.s
+.PHONY : src/Dataset.cpp.s
+
+src/prepDataset.o: src/prepDataset.cpp.o
+.PHONY : src/prepDataset.o
+
+# target to build an object file
+src/prepDataset.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/prepDataset.cpp.o
+.PHONY : src/prepDataset.cpp.o
+
+src/prepDataset.i: src/prepDataset.cpp.i
+.PHONY : src/prepDataset.i
+
+# target to preprocess a source file
+src/prepDataset.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/prepDataset.cpp.i
+.PHONY : src/prepDataset.cpp.i
+
+src/prepDataset.s: src/prepDataset.cpp.s
+.PHONY : src/prepDataset.s
+
+# target to generate assembly for a file
+src/prepDataset.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/prepDataset.cpp.s
+.PHONY : src/prepDataset.cpp.s
 
 # Help Target
 help:
@@ -162,9 +210,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
-	@echo "... Dataset.o"
-	@echo "... Dataset.i"
-	@echo "... Dataset.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... src/Dataset.o"
+	@echo "... src/Dataset.i"
+	@echo "... src/Dataset.s"
+	@echo "... src/prepDataset.o"
+	@echo "... src/prepDataset.i"
+	@echo "... src/prepDataset.s"
 .PHONY : help
 
 

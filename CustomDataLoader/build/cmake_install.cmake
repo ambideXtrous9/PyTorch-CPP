@@ -1,4 +1,4 @@
-# Install script for directory: /home/ss/STUDY/PyTorch-CPP/Custom DataLoader
+# Install script for directory: /home/ss/STUDY/PyTorch-CPP/CustomDataLoader
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ss/STUDY/PyTorch-CPP/Custom DataLoader/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ss/STUDY/PyTorch-CPP/CustomDataLoader/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
