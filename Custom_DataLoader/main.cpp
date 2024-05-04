@@ -4,7 +4,7 @@
 int main()
 {
 
-    std::string parentFolder = "/home/ss/STUDY/PyTorch-CPP/CustomDataLoader/PetImages";
+    std::string parentFolder = "../PetImages";
     std::string categoryFolder = "Cat";
     std::string trainFolder = "Train";
     std::string testFolder = "Test";
@@ -20,8 +20,8 @@ int main()
     std::cout << "Train and Test folders created successfully.\n";
 
     // Paths to train and test folders
-    std::string trainFolderPath = "/home/ss/STUDY/PyTorch-CPP/CustomDataLoader/PetImages/Train";
-    std::string testFolderPath = "/home/ss/STUDY/PyTorch-CPP/CustomDataLoader/PetImages/Test";
+    std::string trainFolderPath = "../PetImages/Train";
+    std::string testFolderPath = "../PetImages/Test";
 
     // Create datasets
     auto trainDataset = CustomDataset(trainFolderPath).map(torch::data::transforms::Stack<>());

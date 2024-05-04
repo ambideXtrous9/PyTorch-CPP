@@ -1,4 +1,5 @@
 libtorch/
 OpenCV/opencv/
 OpenCV/build/
-CustomDataLoader/PetImages/
+Custom_DataLoader/PetImages/
+DogCat_Classifier/PetImages/
