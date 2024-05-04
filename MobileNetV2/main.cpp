@@ -1,6 +1,9 @@
-#include "./inc/model.h"
+#include <torch/script.h>
+#include "./inc/Dataset.h"
+
 
 using namespace std;
+
 
 
 void Test(auto &testloader,int e,auto &criterion,auto &net)
@@ -14,7 +17,13 @@ void Test(auto &testloader,int e,auto &criterion,auto &net)
 
     for (auto &batch : *testloader)
     {
-        auto out = net.forward(batch.data);
+
+        // Need to convert parameters to torch::jit from Tensor
+
+        vector<torch::jit::IValue> input;
+        input.push_back(batch.data);
+
+        auto out = net.forward(input).toTensor(); // convert back to Tensor
         auto loss = criterion(out,batch.target);
 
         epoch_loss += loss.template item<double>() * batch.data.size(0);
@@ -43,7 +52,12 @@ void Train(auto &trainloader,int e,auto &criterion,auto &optimizer,auto &net)
     {
         optimizer.zero_grad();
 
-        auto out = net.forward(batch.data);
+        // Need to convert parameters to torch::jit from Tensor
+
+        vector<torch::jit::IValue> input;
+        input.push_back(batch.data);
+
+        auto out = net.forward(input).toTensor(); // convert back to Tensor
         auto loss = criterion(out,batch.target);
 
         epoch_loss += loss.template item<double>() * batch.data.size(0);
@@ -75,44 +89,66 @@ void CUDA_check()
     torch::Device device(device_type);
 }
 
+
 int main()
 {
     CUDA_check();
 
+    // Paths to train and test folders
+    std::string trainFolderPath = "/home/ss/STUDY/PyTorch-CPP/DogCat_Classifier/PetImages/Train";
+    std::string testFolderPath = "/home/ss/STUDY/PyTorch-CPP/DogCat_Classifier/PetImages/Test";
+
+    // Create datasets
+    auto trainDataset = CustomDataset(trainFolderPath).map(torch::data::transforms::Stack<>());
+    auto testDataset = CustomDataset(testFolderPath).map(torch::data::transforms::Stack<>());
+
+    // Get the length of the datasets
+    size_t trainDatasetSize = *trainDataset.size();
+    size_t testDatasetSize = *testDataset.size();
+
+    std::cout << "\n\nSize of train dataset: " << trainDatasetSize << std::endl;
+    std::cout << "Size of test dataset: " << testDatasetSize << std::endl;
+
+
     int batch_size = 8;
     
-    int num_classes = 10;
+    int num_classes = 2;
 
     int epoch = 20; 
 
-    //=========================== DataLoader =============================//
-
-    std::string data_root{ "data" };
-
-    auto trainset = torch::data::datasets::MNIST(data_root,torch::data::datasets::MNIST::Mode::kTrain)
-    .map(torch::data::transforms::Normalize<>(0.1307, 0.3081))
-    .map(torch::data::transforms::Stack<>());
-    
+    // Create data loaders
     auto trainloader = torch::data::make_data_loader<torch::data::samplers::SequentialSampler>(
-          std::move(trainset),torch::data::DataLoaderOptions().drop_last(true).batch_size(8));
+        std::move(trainDataset), torch::data::DataLoaderOptions().drop_last(true).batch_size(batch_size));
 
-
-    auto testset = torch::data::datasets::MNIST(data_root,torch::data::datasets::MNIST::Mode::kTest)
-    .map(torch::data::transforms::Normalize<>(0.1307, 0.3081))
-    .map(torch::data::transforms::Stack<>());
-    
+    // Create data loaders
     auto testloader = torch::data::make_data_loader<torch::data::samplers::SequentialSampler>(
-          std::move(testset),torch::data::DataLoaderOptions().drop_last(true).batch_size(8));
+        std::move(testDataset), torch::data::DataLoaderOptions().drop_last(true).batch_size(batch_size));
 
 
-    auto net = MnistConvNet(num_classes);
+    std::cout << "Train and Test DataLoader created successfully.\n";
+
+
+
+    auto net = torch::jit::load("../MobileNet.pt");
 
     //=========================== Optimizer and Loss Function =============================//
 
 
     auto criterion = torch::nn::CrossEntropyLoss(torch::nn::CrossEntropyLossOptions().reduction(torch::kMean));
-    
-    auto optimizer = torch::optim::AdamW(net.parameters(),torch::optim::AdamWOptions().lr(0.001));
+
+
+    // Need to convert parameters from torch::jit to Tensor
+
+
+    std::vector<at::Tensor> parameters;
+    for (const auto &params : net.parameters())
+    {
+        parameters.push_back(params);
+    }
+
+    auto optimizer = torch::optim::AdamW(parameters,torch::optim::AdamWOptions().lr(0.001));
+
+    //=========================== Training =============================//
 
     int e = 1;
 
@@ -123,8 +159,8 @@ int main()
         Test(testloader,e,criterion,net);
 
         e += 1;
-    }
+    }    
 
     return 0;
-    
 }
+
