@@ -3,3 +3,4 @@ OpenCV/opencv/
 OpenCV/build/
 Custom_DataLoader/PetImages/
 DogCat_Classifier/PetImages/
+.vscode/
