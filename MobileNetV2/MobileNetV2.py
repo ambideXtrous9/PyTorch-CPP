@@ -15,10 +15,9 @@ class MobileNet(torch.nn.Module):
             param.requires_grad = False
         
         self.model.classifier[1] = nn.Sequential(
-            nn.Linear(in_features=self.model.classifier[1].in_features,out_features=128),
-            nn.LeakyReLU(negative_slope=0.02,inplace=True),
-            nn.Dropout(p=0.4,inplace=True),
-            nn.Linear(in_features=128,out_features=2),
+            nn.Linear(in_features=self.model.classifier[1].in_features,out_features=512),
+            nn.ReLU(inplace=True),
+            nn.Linear(in_features=512,out_features=2),
             nn.Softmax(dim=1))
         
         # print(self.model)

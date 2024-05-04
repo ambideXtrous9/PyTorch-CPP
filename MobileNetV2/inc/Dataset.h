@@ -10,8 +10,6 @@
 
 namespace fs = std::filesystem;
 
-void createTrainTestFolders(const std::string &parentFolder, const std::string &categoryFolder, const std::string &trainFolder, const std::string &testFolder, double trainRatio);
-
 class CustomDataset : public torch::data::Dataset<CustomDataset>
 {
 private:

@@ -94,13 +94,20 @@ int main()
 {
     CUDA_check();
 
+
     // Paths to train and test folders
     std::string trainFolderPath = "/home/ss/STUDY/PyTorch-CPP/DogCat_Classifier/PetImages/Train";
     std::string testFolderPath = "/home/ss/STUDY/PyTorch-CPP/DogCat_Classifier/PetImages/Test";
 
     // Create datasets
-    auto trainDataset = CustomDataset(trainFolderPath).map(torch::data::transforms::Stack<>());
-    auto testDataset = CustomDataset(testFolderPath).map(torch::data::transforms::Stack<>());
+    auto trainDataset = CustomDataset(trainFolderPath)
+    .map(torch::data::transforms::Normalize<>({0.485, 0.456, 0.406}, {0.229, 0.224, 0.225}))
+    .map(torch::data::transforms::Stack<>());
+
+
+    auto testDataset = CustomDataset(testFolderPath)
+    .map(torch::data::transforms::Normalize<>({0.485, 0.456, 0.406}, {0.229, 0.224, 0.225}))
+    .map(torch::data::transforms::Stack<>());
 
     // Get the length of the datasets
     size_t trainDatasetSize = *trainDataset.size();
