@@ -121,10 +121,11 @@ int main()
     
     int num_classes = 2;
 
-    int epoch = 20; 
+    int epoch = 2; 
 
     // Create data loaders
-    auto trainloader = torch::data::make_data_loader<torch::data::samplers::SequentialSampler>(
+    // Always use RandomSampler instead of SequentialSampler otherwise Acuuracy will stuck at 50%
+    auto trainloader = torch::data::make_data_loader<torch::data::samplers::RandomSampler>(
         std::move(trainDataset), torch::data::DataLoaderOptions().drop_last(true).batch_size(batch_size));
 
     // Create data loaders
@@ -153,7 +154,8 @@ int main()
         parameters.push_back(params);
     }
 
-    auto optimizer = torch::optim::AdamW(parameters,torch::optim::AdamWOptions().lr(0.001));
+        auto optimizer = torch::optim::AdamW(parameters,torch::optim::AdamWOptions().lr(0.001));
+
 
     //=========================== Training =============================//
 
@@ -166,7 +168,20 @@ int main()
         Test(testloader,e,criterion,net);
 
         e += 1;
-    }    
+    }
+
+    std::string save_path = "../trained_mobile_net.pt"; // Specify the path to save the trained model
+
+    try
+    {
+        // Serialize and save the trained model to the specified file
+        net.save(save_path);
+        std::cout << "Trained model saved successfully to: " << save_path << std::endl;
+    }
+    catch (const c10::Error &e)
+    {
+        std::cerr << "Error saving the model: " << e.what() << std::endl;
+    }
 
     return 0;
 }

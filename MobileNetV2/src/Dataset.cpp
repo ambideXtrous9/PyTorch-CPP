@@ -34,7 +34,7 @@ torch::data::Example<> CustomDataset::get(size_t index)
     cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
     cv::resize(img, img, cv::Size(28, 28));
     torch::Tensor imageTensor = torch::from_blob(img.data, {img.rows, img.cols, 3}, torch::kByte);
-    imageTensor = imageTensor.permute({2, 0, 1}).to(torch::kFloat32); //.div_(255);
+    imageTensor = imageTensor.permute({2, 0, 1}).to(torch::kFloat32).div_(255);
     int64_t label = labels_[index];
     return {imageTensor.clone(), torch::tensor(label)};
 }
