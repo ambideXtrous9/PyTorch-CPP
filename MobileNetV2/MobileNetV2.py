@@ -22,8 +22,6 @@ class MobileNet(torch.nn.Module):
             nn.Linear(in_features=512,out_features=2),
             nn.Softmax(dim=1))
         
-       
-        
         # print(self.model)
 
     def forward(self, x):

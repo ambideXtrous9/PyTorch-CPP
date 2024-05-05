@@ -121,7 +121,7 @@ int main()
     
     int num_classes = 2;
 
-    int epoch = 2; 
+    int epoch = 20; 
 
     // Create data loaders
     // Always use RandomSampler instead of SequentialSampler otherwise Acuuracy will stuck at 50%
@@ -170,7 +170,7 @@ int main()
         e += 1;
     }
 
-    std::string save_path = "../trained_mobile_net.pt"; // Specify the path to save the trained model
+    std::string save_path = "../DogCatMobileNetv2.pt"; // Specify the path to save the trained model
 
     try
     {
