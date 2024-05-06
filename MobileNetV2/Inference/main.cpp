@@ -19,9 +19,8 @@ int main()
     auto start = std::chrono::steady_clock::now();
 
     cv::Mat img = cv::imread(path);
-
+    cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
     cv::resize(img, img, cv::Size(28, 28));
-
     // cv::namedWindow("Display Image", cv::WindowFlags::WINDOW_AUTOSIZE); 
 	// cv::imshow("Display Image", img); 
 	// cv::waitKey(0); 
