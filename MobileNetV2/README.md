@@ -3,3 +3,5 @@
 2. [Quantization Aware Training](https://pytorch.org/tutorials/recipes/quantization.html)
 
 3. [Static Quantization with Eager Mode in PyTorch](https://pytorch.org/tutorials/advanced/static_quantization_tutorial.html)
+
+4. [PyTorch MobileNetV2 Quantization Fx](https://github.com/motokimura/pytorch_quantization_fx/tree/main)
