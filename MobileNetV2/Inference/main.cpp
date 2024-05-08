@@ -28,7 +28,7 @@ int main()
     torch::Tensor imageTensor = torch::from_blob(img.data, {img.rows, img.cols, 3}, torch::kByte);
     imageTensor = imageTensor.permute({2, 0, 1}).to(torch::kFloat32).div_(255).unsqueeze(0);
 
-    auto net = torch::jit::load("/home/ss/STUDY/PyTorch-CPP/MobileNetV2/DogCatMobileNetv2.pt");
+    auto net = torch::jit::load("/home/ss/STUDY/PyTorch-CPP/MobileNetV2/QATDogCatMobileNetV2.pt");
 
     net.eval();
 
